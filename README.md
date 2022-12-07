@@ -12,10 +12,3 @@ python -m uvicorn main:app --reload
 
 When the application starts, navigate to `http://localhost:8000/docs`.
 
-## Running the tests
-
-Execute the tests:
-
-```
-python -m pytest
-```

@@ -13,7 +13,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 def startup_db_client():
-    app.mongodb_client = MongoClient(config["ATLAS_URI"])
+    app.mongodb_client = MongoClient(config["DB_URI"])
     app.database = app.mongodb_client[config["DB_NAME"]]
 
 @app.on_event("shutdown")
