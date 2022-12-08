@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from routes.user import user as user_route
 from routes.vacancy import vacancy as vacancy_route
 from routes.company import company as company_route
+from routes.queries import queries as query_route
 
 config = dotenv_values(".env")
 
@@ -23,3 +24,4 @@ def shutdown_db_client():
 app.include_router(user_route, tags=["users"], prefix="/user")
 app.include_router(vacancy_route, tags=["vacancies"], prefix="/vacancy")
 app.include_router(company_route, tags=["companies"], prefix="/company")
+app.include_router(query_route, tags=["queries"], prefix="/queries")

@@ -1,6 +1,25 @@
 import uuid
 from typing import Optional, List
 from pydantic import BaseModel, EmailStr, Field
+from enum import Enum
+
+# de ser necesario agregar mas tecnologias al enum, estas son de prueba
+
+class Tecnology(Enum):
+    Python = "Python"
+    Flask = "Flask"
+    HTML = "HTML"
+    NoSQL = "NoSQL"
+    Node = "Node"
+    SQL = "SQL"
+    JavaScript = "JavaScript"
+    TypeScript = "TypeScript"
+
+class Skills(BaseModel):
+    NameSkill: Tecnology
+    YearsPreviousExperience: int
+
+
 
 
 class Usuarios(BaseModel):
@@ -11,7 +30,7 @@ class Usuarios(BaseModel):
     LastName: str
     Email: EmailStr 
     YearsPreviousExperience: int 
-    Skills: List
+    Skills: List[Skills]
 
     class Config:
         allow_population_by_field_name = True
@@ -23,10 +42,12 @@ class Usuarios(BaseModel):
                 "YearsPreviousExperience": 5,
                 "Skills":[
                     {
-                    "Python": 1
+                        "NameSkill":"Python",
+                        "YearsPreviousExperience": 1
                     },
                     {
-                    "NoSQL": 2
+                        "NameSkill":"NoSQL",
+                        "YearsPreviousExperience": 2
                     }
                 ]
             }
@@ -49,13 +70,15 @@ class UsersUpdate(BaseModel):
                     "Email": "un.test.no.hace.mal.update@gmail.com",
                     "YearsPreviousExperience": 5,
                     "Skills":[
-                        {
-                        "Python": 1
-                        },
-                        {
-                        "NoSQL": 2
-                        }
-                    ]
+                    {
+                        "NameSkill":"Python",
+                        "YearsPreviousExperience": 1
+                    },
+                    {
+                        "NameSkill":"NoSQL",
+                        "YearsPreviousExperience": 2
+                    }
+                ]
             }
         }
 

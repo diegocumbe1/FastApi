@@ -2,6 +2,8 @@ import uuid
 from typing import Optional, List
 from pydantic import BaseModel, Field, HttpUrl
 
+from models.user import Skills
+
 
 class Vacante(BaseModel):
 
@@ -12,7 +14,7 @@ class Vacante(BaseModel):
     Currency: str
     VacancyId: str = Field(default_factory=uuid.uuid4)
     VacancyLink: HttpUrl
-    RequiredSkills: List
+    RequiredSkills: List[Skills]
 
     class Config:
         allow_population_by_field_name = True
@@ -25,10 +27,12 @@ class Vacante(BaseModel):
                     "VacancyLink": "https://www.test.com",
                     "RequiredSkills": [
                         {
-                            "Python": 1
+                        "NameSkill":"Python",
+                        "YearsPreviousExperience": 1
                         },
                         {
-                            "NoSQL": 2
+                            "NameSkill":"NoSQL",
+                            "YearsPreviousExperience": 2
                         }
                     ]
                 }
@@ -54,10 +58,12 @@ class VacanteUpdate(BaseModel):
                     "VacancyLink": "https://www.test.update.com",
                     "RequiredSkills": [
                         {
-                            "Python": 1
+                            "NameSkill":"Python",
+                            "YearsPreviousExperience": 1
                         },
                         {
-                            "NoSQL": 2
+                            "NameSkill":"NoSQL",
+                            "YearsPreviousExperience": 2
                         }
                     ]
                 }

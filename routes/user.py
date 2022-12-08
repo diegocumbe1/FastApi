@@ -19,6 +19,7 @@ def find_user(UserId: str, request: Request):
 
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"userId with UserId {UserId} not found")
 
+
 @user.post("/create", response_description="Create a new user", status_code=status.HTTP_201_CREATED, response_model=Usuarios)
 def create_user(request:Request, user: Usuarios = Body(...)):
     user = jsonable_encoder(user)
