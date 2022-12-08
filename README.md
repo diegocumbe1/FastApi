@@ -14,8 +14,9 @@ When the application starts, navigate to `http://localhost:8000/docs`.[https://f
 
 
 ```
-[vailables Vacancies in heroku](https://fast-api.herokuapp.com/docs#/queries/find_vacancy_queries_availableVacancies__UserId__get).
 ```
+#route availables vacancies
+[availables Vacancies in heroku](https://fast-api.herokuapp.com/docs#/queries/find_vacancy_queries_availableVacancies__UserId__get).
 
 
 Deploy to heroku in `https://fast-api.herokuapp.com/docs`
