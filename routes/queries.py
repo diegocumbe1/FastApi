@@ -13,11 +13,13 @@ def find_vacancy(UserId: str, request: Request):
         userSkill =user['Skills']
         for u in userSkill:
             skill = u["NameSkill"]
-            experience =u["YearsPreviousExperience"]
-            vacancies = list(request.app.database["vacancies"].find({
+            # experience =u["YearsPreviousExperience"]
+            # print('user',skill,experience)
+            vacancies = list(request.app.database["vacancies"].find({"$or":[{
                 "RequiredSkills.NameSkill":skill,
-                "Skills.YearsPreviousExperience":{"$gte":experience},
-                }))
+                # "Skills.YearsPreviousExperience":{"$gte":experience},
+                }]}
+                ))
         return vacancies
 
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"userId with UserId {UserId} not found")

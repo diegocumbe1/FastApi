@@ -8,6 +8,7 @@ from models.user import Skills
 class Vacante(BaseModel):
 
     VacancyId: str = Field(default_factory=uuid.uuid4,alias="_id")
+    VacancyId: str = Field(default_factory=uuid.uuid4)
     PositionName:str
     CompanyName: str
     Salary: int
@@ -45,7 +46,7 @@ class VacanteUpdate(BaseModel):
     Salary: Optional[str]
     Currency: Optional[str]
     VacancyLink: Optional[HttpUrl]
-    RequiredSkills: List
+    RequiredSkills: Optional[List]
 
     class Config:
         allow_population_by_field_name = True
