@@ -11,6 +11,7 @@ python -m uvicorn main:app --reload
 ```
 
 When the application starts, navigate to `http://localhost:8000/docs`.
+[vailables Vacacncies](https://fast-api.herokuapp.com/docs#/queries/find_vacancy_queries_availableVacancies__UserId__get).
 
 Deploy to heroku in `https://fast-api.herokuapp.com/docs`
 
